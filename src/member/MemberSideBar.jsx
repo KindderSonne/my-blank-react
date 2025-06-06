@@ -54,6 +54,9 @@ const MemberSidebar = () => {
                                 <button onClick={() => navigate('/member/profile')}>
                                     👤 Profile
                                 </button>
+                                <button onClick={() => navigate('/member/feedback')}>
+                                    💬 Feedback
+                                </button>
                             </div>
                         </div>
                         
@@ -86,6 +89,13 @@ const MemberSidebar = () => {
                                 className="icon-only"
                             >
                                 👤
+                            </button>
+                            <button 
+                                onClick={() => navigate('/member/feedback')}
+                                title="Feedback"
+                                className="icon-only"
+                            >
+                                💬
                             </button>
                         </div>
                         

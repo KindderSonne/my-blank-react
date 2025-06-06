@@ -61,6 +61,9 @@ const AdminSidebar = () => {
                                 <button onClick={() => navigate('/admin/profile')}>
                                     👤 Profile
                                 </button>
+                                <button onClick={() => navigate('/admin/feedback')}>
+                                    💬 Feedback
+                                </button>
                             </div>
                         </div>
                         
@@ -107,6 +110,13 @@ const AdminSidebar = () => {
                                 className="icon-only"
                             >
                                 👤
+                            </button>
+                            <button 
+                                onClick={() => navigate('/admin/feedback')}
+                                title="Feedback"
+                                className="icon-only"
+                            >
+                                💬
                             </button>
                         </div>
                         
