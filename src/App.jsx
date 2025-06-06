@@ -9,6 +9,10 @@ import Member from './admin/Member';
 import AdminProfile from './admin/Profile';
 import MyTasks from './member/MyTasks';
 import MemberProfile from './member/Profile';
+import {Feedback as feedbackMem } from './member/Feedback';
+import { Feedback as feedbackAdmin } from './admin/Feedback';
+
+
 
 const App = () => {
   return (
@@ -27,6 +31,7 @@ const App = () => {
           <Route path="view-task" element={<ViewTask />} />
           <Route path="member" element={<Member />} />
           <Route path="profile" element={<AdminProfile />} />
+          <Route path="feedback" element={<feedbackMem />} />
         </Route>
 
         {/* Member Routes */}
@@ -35,6 +40,7 @@ const App = () => {
           <Route path="my-tasks" element={<MyTasks />} />
           <Route path="my-tasks/:taskId" element={<MyTasks />} />
           <Route path="profile" element={<MemberProfile />} />
+          <Route path="feedback" element={<feedbackAdmin />} />
         </Route>
 
         {/* Catch all route */}

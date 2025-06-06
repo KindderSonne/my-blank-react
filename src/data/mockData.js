@@ -4,65 +4,81 @@ export const mockMembers = [
     id: 1,
     name: "Nguyen Van A",
     email: "nguyenvana@company.com",
+    role: "member",
     department: "Development",
     position: "Frontend Developer",
-    role: "member"
+    lastLogin: "2025-01-15T08:45:00.000Z",
+    isActive: true
   },
   {
     id: 2,
     name: "Tran Thi B",
     email: "tranthib@company.com", 
+    role: "member",
     department: "Design",
     position: "UI/UX Designer",
-    role: "member"
+    lastLogin: "2025-01-14T16:30:00.000Z",
+    isActive: true
   },
   {
     id: 3,
     name: "Le Van C",
     email: "levanc@company.com",
-    department: "Development", 
+    role: "member",
+    department: "Development",
     position: "Backend Developer",
-    role: "member"
+    lastLogin: "2025-01-15T07:20:00.000Z",
+    isActive: true
   },
   {
     id: 4,
     name: "Pham Thi D",
     email: "phamthid@company.com",
+    role: "member",
     department: "QA",
     position: "QA Engineer",
-    role: "member"
+    lastLogin: "2025-01-12T11:10:00.000Z",
+    isActive: true
   },
   {
     id: 5,
     name: "Hoang Van E", 
     email: "hoangvane@company.com",
+    role: "member",
     department: "Management",
     position: "Project Manager",
-    role: "member"
+    lastLogin: "2025-01-14T13:45:00.000Z",
+    isActive: true
   },
   {
     id: 6,
     name: "Vo Thi F",
     email: "vothif@company.com",
+    role: "member",
     department: "Marketing",
     position: "Marketing Specialist",
-    role: "member"
+    lastLogin: "2025-01-13T15:30:00.000Z",
+    isActive: true
   },
   {
     id: 7,
     name: "Dang Van G",
     email: "dangvang@company.com",
+    role: "member",
     department: "Development",
     position: "DevOps Engineer",
-    role: "member"
+    lastLogin: "2025-01-11T10:20:00.000Z",
+    isActive: true
   },
   {
     id: 8,
     name: "Bui Thi H",
     email: "buithih@company.com",
+    role: "member",
     department: "Design",
     position: "Graphic Designer",
-    role: "member"
+    lastLogin: "2025-01-10T14:15:00.000Z",
+    isActive: true
   }
 ];
 
@@ -71,25 +87,31 @@ export const mockAdmins = [
     id: 101,
     name: "Admin System",
     email: "admin@company.com",
+    role: "admin",
     department: "Management",
     position: "System Administrator",
-    role: "admin"
+    lastLogin: "2025-01-15T10:30:00.000Z",
+    isActive: true
   },
   {
     id: 102,
     name: "Nguyen Duc Admin",
     email: "nguyenducadmin@company.com",
-    department: "Management",
+    role: "admin",
+    department: "Management", 
     position: "Project Lead",
-    role: "admin"
+    lastLogin: "2025-01-14T14:20:00.000Z",
+    isActive: true
   },
   {
     id: 103,
     name: "Le Thi Manager",
     email: "lethimanager@company.com",
+    role: "admin",
     department: "Management",
     position: "Team Manager",
-    role: "admin"
+    lastLogin: "2025-01-13T09:15:00.000Z",
+    isActive: true
   }
 ];
 
@@ -114,9 +136,9 @@ export const mockTasks = [
       email: "nguyenducadmin@company.com"
     },
     assignedAt: "2025-06-01T09:15:00.000Z",
-    progress: 65,
+    progress: 30,
     estimatedHours: 40,
-    actualHours: 26
+    actualHours: 12
   },
   {
     id: 2,
@@ -401,16 +423,7 @@ export const statusOptions = [
   { value: "cancelled", label: "❌ Cancelled", color: "#ef4444" }
 ];
 
-// Helper functions
-export const getAdminById = (adminId) => {
-  return mockAdmins.find(admin => admin.id === adminId);
-};
-
-export const getMemberById = (memberId) => {
-  return mockMembers.find(member => member.id === memberId);
-};
-
-// Mock Account Data for Testing Login
+// Mock Account Data for Testing Login - cleaned up version
 export const mockAccounts = [
   // Admin Accounts
   {
@@ -549,7 +562,16 @@ export const mockAccounts = [
   }
 ];
 
-// Authentication Helper Functions
+// Helper functions for local development - these will be replaced by Firebase functions
+export const getAdminById = (adminId) => {
+  return mockAdmins.find(admin => admin.id === adminId);
+};
+
+export const getMemberById = (memberId) => {
+  return mockMembers.find(member => member.id === memberId);
+};
+
+// Authentication Helper Functions for local use
 export const authenticateUser = (username, password) => {
   const user = mockAccounts.find(
     account => account.username === username && account.password === password && account.isActive
@@ -596,14 +618,14 @@ export const printTestAccounts = () => {
     .forEach(account => {
       console.log(`• Username: ${account.username} | Password: ${account.password} | Name: ${account.name}`);
     });
-  
+
   console.log('\n👥 MEMBER ACCOUNTS:');
   mockAccounts
     .filter(account => account.role === 'member')
     .forEach(account => {
       console.log(`• Username: ${account.username} | Password: ${account.password} | Name: ${account.name}`);
     });
-  
+
   console.log('\n📝 Usage: Navigate to login page and use any username/password combination above');
   console.log('===============================\n');
 };
